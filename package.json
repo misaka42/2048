@@ -1,0 +1,34 @@
+{
+  "name": "game-2048",
+  "version": "0.0.1",
+  "description": "A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "standard src/**/*.js",
+    "fix": "standard src/**/*.js --fix",
+    "build": "npm test && rollup -c",
+    "watch": "rollup -c -w",
+    "dev": "npm-run-all --parallel start watch",
+    "start": "hs ./ -o -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppq1991/2048.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ppq1991/2048/issues"
+  },
+  "homepage": "https://github.com/ppq1991/2048#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "http-server": "^0.11.1",
+    "npm-run-all": "^4.1.2",
+    "rollup": "^0.55.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "standard": "^10.0.3"
+  }
+}
