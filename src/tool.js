@@ -17,10 +17,10 @@
  * @return {Element}
  */
 export function createElement (tagName, attr, children) {
-  const node = document.createElement(tagName);
+  const node = document.createElement(tagName)
   Object.assign(node, attr);
   (children || []).forEach(child => {
-    node.appendChild(child);
+    node.appendChild(child)
   })
-  return node;
+  return node
 }
