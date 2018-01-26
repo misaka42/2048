@@ -1,8 +1,7 @@
 # 2048
-
-## Usage
 Just change the origin code to CommonJS version and publish it to npm to make it easy to use.
 
+## Usage
 ##### import
 ```bash
 npm i -S game-2048
