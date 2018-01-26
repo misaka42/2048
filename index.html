@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" manifest="cache.appcache">
 <head>
   <meta charset="utf-8">
   <title>2048</title>
@@ -15,11 +15,10 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no" />
 </head>
 <body>
   <div id="game-container" class="container"></div>
-
-
   <script src="lib/index.js"></script>
   <script>
     window.game = new Game({
