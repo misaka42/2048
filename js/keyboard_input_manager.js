@@ -1,4 +1,9 @@
-function KeyboardInputManager() {
+/**
+ * @param {GameConfig} config
+ * @constructor
+ */
+function KeyboardInputManager(config) {
+  this.config = config;
   this.events = {};
 
   if (window.navigator.msPointerEnabled) {
@@ -72,13 +77,13 @@ KeyboardInputManager.prototype.listen = function () {
   });
 
   // Respond to button presses
-  this.bindButtonPress(".retry-button", this.restart);
+  this.bindButtonPress(this.config.retryButton, this.restart);
   this.bindButtonPress(".restart-button", this.restart);
-  this.bindButtonPress(".keep-playing-button", this.keepPlaying);
+  this.bindButtonPress(this.config.keepPlayingButton, this.keepPlaying);
 
   // Respond to swipe events
   var touchStartClientX, touchStartClientY;
-  var gameContainer = document.getElementsByClassName("game-container")[0];
+  var gameContainer = this.config.gameContainer;
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
@@ -143,7 +148,7 @@ KeyboardInputManager.prototype.keepPlaying = function (event) {
 };
 
 KeyboardInputManager.prototype.bindButtonPress = function (selector, fn) {
-  var button = document.querySelector(selector);
+  var button = selector instanceof HTMLElement ? selector : document.querySelector(selector);
   button.addEventListener("click", fn.bind(this));
   button.addEventListener(this.eventTouchend, fn.bind(this));
 };
@@ -151,3 +156,5 @@ KeyboardInputManager.prototype.bindButtonPress = function (selector, fn) {
 KeyboardInputManager.prototype.targetIsInput = function (event) {
   return event.target.tagName.toLowerCase() === "input";
 };
+
+export default KeyboardInputManager;

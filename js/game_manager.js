@@ -1,10 +1,22 @@
-function GameManager(size, InputManager, Actuator, StorageManager) {
-  this.size           = size; // Size of the grid
-  this.inputManager   = new InputManager;
-  this.storageManager = new StorageManager;
-  this.actuator       = new Actuator;
+import Grid from './grid';
+import Tile from './tile';
+import KeyboardInputManager from '../js/keyboard_input_manager'
+import HTMLActuator from '../js/html_actuator'
+import LocalStorageManager from '../js/local_storage_manager'
 
-  this.startTiles     = 2;
+/**
+ * Core Game Manager
+ * @param {GameConfig} config
+ * @constructor
+ */
+function GameManager(config) {
+  this.config         = config;
+  this.size           = config.size;
+  this.inputManager   = new KeyboardInputManager(config);
+  this.storageManager = new LocalStorageManager(config);
+  this.actuator       = new HTMLActuator(config);
+
+  this.startTiles     = config.startTiles;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -130,6 +142,7 @@ GameManager.prototype.moveTile = function (tile, cell) {
 GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2: down, 3: left
   var self = this;
+  var endScore = this.config.endScore;
 
   if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
@@ -167,7 +180,7 @@ GameManager.prototype.move = function (direction) {
           self.score += merged.value;
 
           // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value === endScore) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }
@@ -270,3 +283,5 @@ GameManager.prototype.tileMatchesAvailable = function () {
 GameManager.prototype.positionsEqual = function (first, second) {
   return first.x === second.x && first.y === second.y;
 };
+
+export default GameManager;
