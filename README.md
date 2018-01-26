@@ -1,6 +1,9 @@
 # 2048
 Just change the origin code to CommonJS version and publish it to npm to make it easy to use.
 
+## Demo
+https://ppq1991.github.io/2048/
+
 ## Usage
 ##### import
 ```bash
