@@ -27,10 +27,10 @@ export default {
     name: 'Game'
   },
   plugins: [
-    // resolve(), // tells Rollup how to find date-fns in node_modules
-    // commonjs(), // converts date-fns to ES modules
+    // resolve(),
+    // commonjs(),
     babel({
-      exclude: 'node_modules/**' // 只编译我们的源代码
+      exclude: 'node_modules/**'
     }),
     // production && uglify() // minify, but only in production
   ]

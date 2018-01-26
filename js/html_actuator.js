@@ -1,10 +1,15 @@
-function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
+/**
+ * @param {GameConfig} config
+ * @constructor
+ */
+function HTMLActuator(config) {
+  this.tileContainer    = config.tileContainer;
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
-  this.messageContainer = document.querySelector(".game-message");
+  this.messageContainer = config.gameMessageContainer;
 
   this.score = 0;
+  this.config = config;
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -57,7 +62,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + tile.value, positionClass];
 
-  if (tile.value > 2048) classes.push("tile-super");
+  if (tile.value > this.config.endScore) classes.push("tile-super");
 
   this.applyClasses(wrapper, classes);
 
@@ -125,8 +130,8 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var type    = won ? this.config.gameWinMessage : this.config.gameLoseMessage;
+  var message = won ? this.config.playerWinMessage : this.config.playerLoseMessage;
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
