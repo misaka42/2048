@@ -3,7 +3,7 @@ CACHE MANIFEST
 # Adds the ability to play the game offline.
 # The following comment needs to be updated whenever a change is made.
 # Run `rake appcache:update` to do so
-# Updated: 2015-10-20T11:14:00-08:00
+# Updated: 2018-01-29T16:11:08+08:00
 
 # Main page
 index.html
@@ -30,14 +30,7 @@ meta/icon_pp.svg
 meta/og_image.png
 
 # JavaScript
-js/animframe_polyfill.js
-js/application.js
-js/game_manager.js
-js/grid.js
-js/html_actuator.js
-js/keyboard_input_manager.js
-js/local_storage_manager.js
-js/tile.js
+lib/index.js
 
 favicon.ico
 

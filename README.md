@@ -24,27 +24,20 @@ const game = new Game({
 ```
 
 ## Config
-```js
-  /**
-   * @typedef {Object} GameConfig
-   * @property {number} size - size of the grid
-   * @property {Element} gameContainer - the main container of the game
-   * @property {?number} startTiles - numbers of tiles in the beginning
-   * @property {?number} endScore - number of the score to end the game
-   * @property {?string} title
-   * @property {?string} desc
-   * @property {?string} gameWinMessage
-   * @property {?string} gameLoseMessage
-   * @property {?string} playerWinMessage
-   * @property {?string} playerLoseMessage
-   * @property {?Element} gameMessageContainer
-   * @property {?Element} tileContainer
-   * @property {?Element} retryButton
-   * @property {?Element} keepPlayingButton
-   * @property {?Element} scoreContainer
-   * @property {?Element} bestContainer
-   */
-```
+|property|type|desc|required|default|
+|---|---|---|---|---|
+|gameContainer|HTMLElement|the game container|√||
+|size|number|size of the grid|X|4|
+|startTiles|number|number of tiles in the game beginning|X|2|
+|endScore|number|the score to win the game|X|2048|
+|title|string|title|X|2048|
+|desc|string|brief intro|X|Join the numbers and get to the 2048 tile!|
+|playerWinMessage|string|alert message content when game won|X|You Win!|
+|playerLoseMessage|string|alert message content when game over|X|Game Over!|
+|newGameButtonText|string|button text|X|New Game|
+|initValue|number|init value of the first tile|X|2|
+|nextValue|function|call this function to get next value|X|v => v * 2|
+
 
 ### Screenshot
 
@@ -52,7 +45,6 @@ const game = new Game({
   <img src="https://cloud.githubusercontent.com/assets/1175750/8614312/280e5dc2-26f1-11e5-9f1f-5891c3ca8b26.png" alt="Screenshot"/>
 </p>
 
-That screenshot is fake, by the way. I never reached 2048 :smile:
 
 ## License
 2048 is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
