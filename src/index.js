@@ -21,14 +21,14 @@ import { createElement } from './tool'
 const DEFAULT_GAME_CONFIG = {
   size: 4,
   startTiles: 2,
+  initValue: 2,
   endScore: 2048,
-  gameWinMessage: 'game-won',
-  gameLoseMessage: 'game-over',
   playerWinMessage: 'You Win!',
   playerLoseMessage: 'Game Over!',
   newGameButtonText: 'New Game',
   title: '2048',
-  desc: 'Join the numbers and get to the 2048 tile!'
+  desc: 'Join the numbers and get to the 2048 tile!',
+  nextValue: v => v * 2
 }
 
 class Game {
@@ -37,11 +37,10 @@ class Game {
    * @property {number} size - size of the grid
    * @property {Element} gameContainer - the main container of the game
    * @property {?number} startTiles - numbers of tiles in the beginning
+   * @property {?number} initValue - value of the first tile
    * @property {?number} endScore - number of the score to end the game
    * @property {?string} title
    * @property {?string} desc
-   * @property {?string} gameWinMessage
-   * @property {?string} gameLoseMessage
    * @property {?string} playerWinMessage
    * @property {?string} playerLoseMessage
    * @property {?Element} gameMessageContainer
@@ -50,6 +49,7 @@ class Game {
    * @property {?Element} keepPlayingButton
    * @property {?Element} scoreContainer
    * @property {?Element} bestContainer
+   * @property {?function} nextValue - return next value by previous
    */
 
   /**
