@@ -36,6 +36,7 @@ const game = new Game({
 |newGameButtonText|string|button text|X|New Game|
 |initValue|number|init value of the first tile|X|2|
 |getNextValue|function|call this function to get next value|X|v => v * 2|
+|getClassNameByValue|function|call this function to get classname|X|v => `tile-${v}`|
 
 
 ### Screenshot
