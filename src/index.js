@@ -70,8 +70,8 @@ class Game {
     const config = this.config
     config.scoreContainer = config.scoreContainer || createElement('div', { className: 'score-container', innerText: '0' })
     config.bestContainer = config.bestContainer || createElement('div', { className: 'best-container', innerText: '0' })
-    config.retryButton = config.retryButton || createElement('div', { className: 'retry-button', innerText: 'Try again' })
-    config.keepPlayingButton = config.keepPlayingButton || createElement('div', { className: 'keep-playing-button', innerText: 'Keep going' })
+    config.retryButton = config.retryButton || createElement('a', { className: 'retry-button', innerText: 'Try again' })
+    config.keepPlayingButton = config.keepPlayingButton || createElement('a', { className: 'keep-playing-button', innerText: 'Keep going' })
     config.gameMessageContainer = config.gameMessageContainer || createElement('div', { className: 'game-message' }, [
       createElement('p'),
       createElement('div', { className: 'lower' }, [
