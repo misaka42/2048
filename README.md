@@ -25,9 +25,10 @@ const game = new Game({
 ```
 
 ## Config
+##### constructor
 |property|type|desc|required|default|
 |---|---|---|---|---|
-|gameContainer|HTMLElement|the game container|√||
+|gameContainer|HTMLElement|the game container|√|undefined|
 |startTiles|number|number of tiles in the game beginning|X|2|
 |endScore|number|the score to win the game|X|2048|
 |title|string|title|X|2048|
@@ -38,6 +39,9 @@ const game = new Game({
 |initValue|number|init value of the first tile|X|2|
 |getNextValue|function|call this function to get next value|X|v => v * 2|
 |getClassNameByValue|function|call this function to get classname|X|v => `tile-${v}`|
+|onGameStart|function|on game start hook|X|undefined|
+
+##### methods
 
 
 ### Screenshot

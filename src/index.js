@@ -51,6 +51,8 @@ class Game {
    * @property {?Element} scoreContainer
    * @property {?Element} bestContainer
    * @property {?function} getNextValue - return next value by previous
+   * @property {?function} getClassNameByValue
+   * @property {?function} onGameStart
    */
 
   /**

@@ -24,6 +24,9 @@
     window.game = new Game({
       gameContainer: document.getElementById('game-container'),
       desc: 'You can edit text here yourself !',
+      onGameStart: function () {
+        console.log('game start!');
+      }
     });
   </script>
 </body>
