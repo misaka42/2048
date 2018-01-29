@@ -1,11 +1,15 @@
+const GAME_WIN_CLASSNAME = 'game-won';
+const GAME_OVER_CLASSNAME = 'game-over';
+const SCORE_ADD_CLASSNAME = 'score-addition';
+
 /**
  * @param {GameConfig} config
  * @constructor
  */
 function HTMLActuator(config) {
   this.tileContainer    = config.tileContainer;
-  this.scoreContainer   = document.querySelector(".score-container");
-  this.bestContainer    = document.querySelector(".best-container");
+  this.scoreContainer   = config.scoreContainer;
+  this.bestContainer    = config.bestContainer;
   this.messageContainer = config.gameMessageContainer;
 
   this.score = 0;
@@ -118,7 +122,7 @@ HTMLActuator.prototype.updateScore = function (score) {
 
   if (difference > 0) {
     var addition = document.createElement("div");
-    addition.classList.add("score-addition");
+    addition.classList.add(SCORE_ADD_CLASSNAME);
     addition.textContent = "+" + difference;
 
     this.scoreContainer.appendChild(addition);
@@ -130,7 +134,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var type    = won ? this.config.gameWinMessage : this.config.gameLoseMessage;
+  var type    = won ? GAME_WIN_CLASSNAME : GAME_OVER_CLASSNAME;
   var message = won ? this.config.playerWinMessage : this.config.playerLoseMessage;
 
   this.messageContainer.classList.add(type);
@@ -139,8 +143,8 @@ HTMLActuator.prototype.message = function (won) {
 
 HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
-  this.messageContainer.classList.remove("game-won");
-  this.messageContainer.classList.remove("game-over");
+  this.messageContainer.classList.remove(GAME_WIN_CLASSNAME);
+  this.messageContainer.classList.remove(GAME_OVER_CLASSNAME);
 };
 
 export default HTMLActuator;
