@@ -10,17 +10,18 @@ https://ppq1991.github.io/2048/
 npm i -S game-2048
 ```
 
+##### html
+```html
+<div id="container"></div>
+```
+
 ##### javascript
 ```js
+import 'game-2048/style/main.css';
 import Game from 'game-2048';
 const game = new Game({
   gameContainer: document.getElementById('container')
 }); 
-```
-
-##### html
-```html
-<div id="container"></div>
 ```
 
 ## Config

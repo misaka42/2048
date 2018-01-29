@@ -29,7 +29,7 @@ const DEFAULT_GAME_CONFIG = {
   title: '2048',
   desc: 'Join the numbers and get to the 2048 tile!',
   getNextValue: v => v * 2,
-  getClassNameByValue: v => `tile-${v}`,
+  getClassNameByValue: v => `tile-${v}`
 }
 
 class Game {
