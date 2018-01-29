@@ -35,7 +35,7 @@ const game = new Game({
 |playerLoseMessage|string|alert message content when game over|X|Game Over!|
 |newGameButtonText|string|button text|X|New Game|
 |initValue|number|init value of the first tile|X|2|
-|nextValue|function|call this function to get next value|X|v => v * 2|
+|getNextValue|function|call this function to get next value|X|v => v * 2|
 
 
 ### Screenshot

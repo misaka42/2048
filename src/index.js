@@ -28,7 +28,7 @@ const DEFAULT_GAME_CONFIG = {
   newGameButtonText: 'New Game',
   title: '2048',
   desc: 'Join the numbers and get to the 2048 tile!',
-  nextValue: v => v * 2
+  getNextValue: v => v * 2
 }
 
 class Game {
@@ -49,7 +49,7 @@ class Game {
    * @property {?Element} keepPlayingButton
    * @property {?Element} scoreContainer
    * @property {?Element} bestContainer
-   * @property {?function} nextValue - return next value by previous
+   * @property {?function} getNextValue - return next value by previous
    */
 
   /**
