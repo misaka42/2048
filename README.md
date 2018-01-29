@@ -27,7 +27,6 @@ const game = new Game({
 |property|type|desc|required|default|
 |---|---|---|---|---|
 |gameContainer|HTMLElement|the game container|√||
-|size|number|size of the grid|X|4|
 |startTiles|number|number of tiles in the game beginning|X|2|
 |endScore|number|the score to win the game|X|2048|
 |title|string|title|X|2048|
