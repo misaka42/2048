@@ -25,7 +25,12 @@
       gameContainer: document.getElementById('game-container'),
       desc: 'You can edit text here yourself !',
       onGameStart: function () {
-        console.log('game start!');
+        console.info('game start!');
+      },
+      onGameOver: function (score, isWin) {
+        console.info('game over!');
+        console.log('score', score);
+        console.log('isWin', isWin);
       }
     });
   </script>

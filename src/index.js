@@ -23,6 +23,7 @@ const DEFAULT_GAME_CONFIG = {
   startTiles: 2,
   initValue: 2,
   endScore: 2048,
+  keepPlaying: false,
   playerWinMessage: 'You Win!',
   playerLoseMessage: 'Game Over!',
   newGameButtonText: 'New Game',
@@ -40,6 +41,7 @@ class Game {
    * @property {?number} startTiles - numbers of tiles in the beginning
    * @property {?number} initValue - value of the first tile
    * @property {?number} endScore - number of the score to end the game
+   * @property {?boolean} keepPlaying
    * @property {?string} title
    * @property {?string} desc
    * @property {?string} playerWinMessage
@@ -53,6 +55,7 @@ class Game {
    * @property {?function} getNextValue - return next value by previous
    * @property {?function} getClassNameByValue
    * @property {?function} onGameStart
+   * @property {?function} onGameOver - onGameOver(score, isWin)
    */
 
   /**
@@ -75,6 +78,7 @@ class Game {
     config.bestContainer = config.bestContainer || createElement('div', { className: 'best-container', innerText: '0' })
     config.retryButton = config.retryButton || createElement('a', { className: 'retry-button', innerText: 'Try again' })
     config.keepPlayingButton = config.keepPlayingButton || createElement('a', { className: 'keep-playing-button', innerText: 'Keep going' })
+    config.keepPlayingButton.style.display = config.keepPlaying ? null : 'none'
     config.gameMessageContainer = config.gameMessageContainer || createElement('div', { className: 'game-message' }, [
       createElement('p'),
       createElement('div', { className: 'lower' }, [

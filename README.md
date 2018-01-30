@@ -31,6 +31,7 @@ const game = new Game({
 |gameContainer|HTMLElement|the game container|√|undefined|
 |startTiles|number|number of tiles in the game beginning|X|2|
 |endScore|number|the score to win the game|X|2048|
+|keepPlaying|boolean|show keep playing button after player reach the end score|X|false|
 |title|string|title|X|2048|
 |desc|string|brief intro|X|Join the numbers and get to the 2048 tile!|
 |playerWinMessage|string|alert message content when game won|X|You Win!|
@@ -40,6 +41,7 @@ const game = new Game({
 |getNextValue|function|call this function to get next value|X|v => v * 2|
 |getClassNameByValue|function|call this function to get classname|X|v => `tile-${v}`|
 |onGameStart|function|on game start hook|X|undefined|
+|onGameOver|function|onGameOver(score, isWin)|X|undefined|
 
 ##### methods
 
